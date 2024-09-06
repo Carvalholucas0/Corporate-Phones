@@ -1,0 +1,27 @@
+import sqlite3
+
+
+conn = sqlite3.connect('corporate_phones.db')
+
+
+cursor = conn.cursor()
+
+
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS phones (
+    id INTEGER PRIMARY KEY,
+    localidade TEXT NOT NULL,
+    setor TEXT NOT NULL,
+    linha TEXT NOT NULL,
+    chip TEXT NOT NULL,
+    perfil TEXT NOT NULL,
+    nome TEXT NOT NULL,
+    email TEXT NOT NULL,
+    modelo_aparelho TEXT NOT NULL,
+    data_entrega DATE NOT NULL
+)
+''')
+
+
+conn.commit()
+conn.close()
